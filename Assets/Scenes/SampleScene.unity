@@ -1558,6 +1558,7 @@ GameObject:
   - component: {fileID: 551171643}
   - component: {fileID: 551171647}
   - component: {fileID: 551171646}
+  - component: {fileID: 551171648}
   m_Layer: 6
   m_Name: Torso
   m_TagString: Untagged
@@ -1780,6 +1781,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!75 &551171648
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551171641}
+  m_Enabled: 1
+  m_Force: {x: 0, y: 200, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,7 +1881,7 @@ Transform:
   m_GameObject: {fileID: 705507993}
   serializedVersion: 2
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: -8.55, y: 3, z: -18.47}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2326,7 +2339,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 809553629}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b86c8d2b3a32d60459552de0ef7b6feb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2948,7 +2961,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.39840582, y: -2.85, z: -0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 1, z: 10}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3704,7 +3717,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873350890}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: b86c8d2b3a32d60459552de0ef7b6feb, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -3906,7 +3919,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1877081684}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Ragdoll
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3957,6 +3970,8 @@ GameObject:
   - component: {fileID: 1907327816}
   - component: {fileID: 1907327815}
   - component: {fileID: 1907327819}
+  - component: {fileID: 1907327820}
+  - component: {fileID: 1907327821}
   m_Layer: 6
   m_Name: Hips
   m_TagString: Untagged
@@ -4077,6 +4092,38 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!75 &1907327820
+ConstantForce:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907327813}
+  m_Enabled: 1
+  m_Force: {x: 0, y: -100, z: 0}
+  m_RelativeForce: {x: 0, y: 0, z: 0}
+  m_Torque: {x: 0, y: 0, z: 0}
+  m_RelativeTorque: {x: 0, y: 0, z: 0}
+--- !u!114 &1907327821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1907327813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f8007f04bd8a854cb1141a7e0ad3621, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  StaticAnimator: {fileID: 0}
+  speed: 250
+  hips: {fileID: 1907327819}
+  uprightforces:
+  - {fileID: 767578598}
+  - {fileID: 1907327820}
+  - {fileID: 551171648}
+  upright: 1
 --- !u!1 &1913057413
 GameObject:
   m_ObjectHideFlags: 0
