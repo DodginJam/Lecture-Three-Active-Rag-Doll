@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SpiderController : MonoBehaviour
 {
-    public float HorizontalInput
+    public float VerticalInput
     { get; private set; }
 
-
+    [field: SerializeField] public float Speed
+    { get; private set; }
 
     // Start is called before the first frame update
     void Start()
@@ -18,6 +19,8 @@ public class SpiderController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HorizontalInput = Input.GetAxisRaw("Horizontal");
+        VerticalInput = Input.GetAxisRaw("Vertical");
+
+        gameObject.transform.position += Time.deltaTime * Speed * VerticalInput * gameObject.transform.forward;
     }
 }
