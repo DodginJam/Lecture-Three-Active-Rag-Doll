@@ -876,6 +876,148 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260375591}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &266445508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 266445512}
+  - component: {fileID: 266445511}
+  - component: {fileID: 266445510}
+  - component: {fileID: 266445509}
+  - component: {fileID: 266445513}
+  m_Layer: 0
+  m_Name: Cube
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &266445509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266445508}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &266445510
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266445508}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &266445511
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266445508}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &266445512
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266445508}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.72, y: 5.523, z: 2.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &266445513
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266445508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf8e9ce442c330e43a4af3ea214b2e6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <LerpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 1
+      inSlope: 1
+      outSlope: 1
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &292921277
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,8 +1535,9 @@ GameObject:
   - component: {fileID: 437114964}
   - component: {fileID: 437114963}
   - component: {fileID: 437114966}
+  - component: {fileID: 437114967}
   m_Layer: 2
-  m_Name: SpiderLegLeftPredictedTarget
+  m_Name: BackLeftPredictedTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1501,6 +1644,55 @@ MonoBehaviour:
   <StrideLength>k__BackingField: 2
   <TargetPredicted>k__BackingField: {fileID: 437114962}
   <EndEffectorTarget>k__BackingField: {fileID: 1431213117}
+  <LegMoving>k__BackingField: 0
+  <LerpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.10611369
+      value: 0.023757398
+      inSlope: 0.20229524
+      outSlope: 0.20229524
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2.9144845
+      value: 0.59187746
+      inSlope: -0.019472454
+      outSlope: -0.019472454
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11332386
+      outWeight: 0.12767029
+    - serializedVersion: 3
+      time: 5.5456853
+      value: 0.18535852
+      inSlope: -0.1544994
+      outSlope: -0.1544994
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!111 &437114967
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 437114961}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &448357869
 GameObject:
   m_ObjectHideFlags: 0
@@ -2707,7 +2899,7 @@ GameObject:
   - component: {fileID: 865036588}
   - component: {fileID: 865036591}
   m_Layer: 2
-  m_Name: SpiderLegRightPredictedTarget
+  m_Name: FrontRightPredictedTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2814,6 +3006,40 @@ MonoBehaviour:
   <StrideLength>k__BackingField: 2
   <TargetPredicted>k__BackingField: {fileID: 865036587}
   <EndEffectorTarget>k__BackingField: {fileID: 1926123718}
+  <LegMoving>k__BackingField: 0
+  <LerpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.10611369
+      value: 0.023757398
+      inSlope: 0.20229524
+      outSlope: 0.20229524
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2.9144845
+      value: 0.59187746
+      inSlope: -0.019472454
+      outSlope: -0.019472454
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11332386
+      outWeight: 0.12767029
+    - serializedVersion: 3
+      time: 5.5456853
+      value: 0.18535852
+      inSlope: -0.1544994
+      outSlope: -0.1544994
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &879213814
 GameObject:
   m_ObjectHideFlags: 0
@@ -3589,7 +3815,7 @@ GameObject:
   - component: {fileID: 1257840643}
   - component: {fileID: 1257840646}
   m_Layer: 2
-  m_Name: SpiderLegRightPredictedTarget
+  m_Name: BackRightPredictedTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3696,6 +3922,40 @@ MonoBehaviour:
   <StrideLength>k__BackingField: 2
   <TargetPredicted>k__BackingField: {fileID: 1257840642}
   <EndEffectorTarget>k__BackingField: {fileID: 2020991618}
+  <LegMoving>k__BackingField: 0
+  <LerpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.10611369
+      value: 0.023757398
+      inSlope: 0.20229524
+      outSlope: 0.20229524
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2.9144845
+      value: 0.59187746
+      inSlope: -0.019472454
+      outSlope: -0.019472454
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11332386
+      outWeight: 0.12767029
+    - serializedVersion: 3
+      time: 5.5456853
+      value: 0.18535852
+      inSlope: -0.1544994
+      outSlope: -0.1544994
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1280790965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4003,7 +4263,7 @@ GameObject:
   - component: {fileID: 1414294644}
   - component: {fileID: 1414294647}
   m_Layer: 2
-  m_Name: SpiderLegLeftPredictedTarget
+  m_Name: FrontLeftPredictedTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4110,6 +4370,40 @@ MonoBehaviour:
   <StrideLength>k__BackingField: 2
   <TargetPredicted>k__BackingField: {fileID: 1414294643}
   <EndEffectorTarget>k__BackingField: {fileID: 340711391}
+  <LegMoving>k__BackingField: 0
+  <LerpCurve>k__BackingField:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.10611369
+      value: 0.023757398
+      inSlope: 0.20229524
+      outSlope: 0.20229524
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 2.9144845
+      value: 0.59187746
+      inSlope: -0.019472454
+      outSlope: -0.019472454
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.11332386
+      outWeight: 0.12767029
+    - serializedVersion: 3
+      time: 5.5456853
+      value: 0.18535852
+      inSlope: -0.1544994
+      outSlope: -0.1544994
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1431213116
 GameObject:
   m_ObjectHideFlags: 0
@@ -4490,6 +4784,37 @@ Transform:
   - {fileID: 1108605459}
   m_Father: {fileID: 172444043}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1634204199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1634204200}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1634204200
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634204199}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -13.72, y: 5.523, z: 2.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1649953187 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100048, guid: 9251f384b071861468e65c0fc55b87e9, type: 3}
@@ -4697,8 +5022,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b11a2c3a60dc4f408373068d42d7dc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <MovementSpeed>k__BackingField: 20
-  <RotationSpeed>k__BackingField: 200
+  <MovementSpeed>k__BackingField: 5
+  <RotationSpeed>k__BackingField: 50
 --- !u!1 &1694139451
 GameObject:
   m_ObjectHideFlags: 0
@@ -6038,3 +6363,5 @@ SceneRoots:
   - {fileID: 1652792637}
   - {fileID: 879213815}
   - {fileID: 937796326}
+  - {fileID: 1634204200}
+  - {fileID: 266445512}

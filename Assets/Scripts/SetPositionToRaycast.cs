@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class SetPositionToRaycast : MonoBehaviour
@@ -14,6 +15,14 @@ public class SetPositionToRaycast : MonoBehaviour
 
     [field: SerializeField]
     public Transform EndEffectorTarget
+    { get; private set; }
+
+    [field: SerializeField]
+    public bool LegMoving 
+    { get; private set; } = false;
+
+    [field: SerializeField]
+    public AnimationCurve LerpCurve
     { get; private set; }
 
 
@@ -38,9 +47,44 @@ public class SetPositionToRaycast : MonoBehaviour
 
         float targetToPredictedStepDistance = Vector3.Distance(EndEffectorTarget.position, TargetPredicted.position);
 
-        if (targetToPredictedStepDistance > StrideLength)
+        if (targetToPredictedStepDistance > StrideLength && LegMoving == false)
         {
-            EndEffectorTarget.position = TargetPredicted.position;
+            StartCoroutine(TransitionLegs());
+
+            // EndEffectorTarget.position = TargetPredicted.position;
         }
+    }
+
+    public IEnumerator TransitionLegs()
+    {
+        LegMoving = true;
+
+        Vector3 startPosition = EndEffectorTarget.position;
+        Vector3 endPosition = TargetPredicted.position;
+
+        float timeToMoveLeg = 0.2f;
+        float timeElasped = 0.0f;
+
+        while (timeElasped < timeToMoveLeg)
+        {
+            float currentTime = timeElasped / timeToMoveLeg;
+
+            Vector3 currentValue = Vector3.Lerp(startPosition, endPosition, currentTime);
+
+            currentValue = new Vector3(currentValue.x, LerpCurve.Evaluate(currentTime * currentValue.y * 500), currentValue.z);
+
+            EndEffectorTarget.position = currentValue;
+
+            timeElasped += Time.deltaTime;
+
+            if (currentTime > 0.99f)
+            {
+                break;
+            }
+
+            yield return new WaitForEndOfFrame();
+        }
+
+        LegMoving = false;
     }
 }
