@@ -71,7 +71,7 @@ public class SetPositionToRaycast : MonoBehaviour
 
             Vector3 currentValue = Vector3.Lerp(startPosition, endPosition, currentTime);
 
-            currentValue = new Vector3(currentValue.x, LerpCurve.Evaluate(currentTime * currentValue.y * 500), currentValue.z);
+            //currentValue = new Vector3(currentValue.x, LerpCurve.Evaluate(currentTime * currentValue.y * 500), currentValue.z);
 
             EndEffectorTarget.position = currentValue;
 
