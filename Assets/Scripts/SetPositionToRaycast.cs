@@ -54,6 +54,10 @@ public class SetPositionToRaycast : MonoBehaviour
     public SetPositionToRaycast PairedLeg
     { get; private set; }
 
+    [field: SerializeField]
+    public GameObject RayCastEmitter
+    { get; private set; }
+
 
     // Start is called before the first frame update
     void Start()
@@ -124,12 +128,21 @@ public class SetPositionToRaycast : MonoBehaviour
     {
         RaycastHit hit;
 
-        bool hitFound = Physics.Raycast(TargetPredicted.position + transform.up.normalized, -transform.up, out hit);
-        Debug.DrawRay(TargetPredicted.position + transform.up.normalized, -transform.up);
+        bool hitFound = Physics.Raycast(RayCastEmitter.transform.position, -transform.up, out hit);
+        Debug.DrawRay(RayCastEmitter.transform.position, -transform.up);
 
-        if (hitFound)
+        RaycastHit hit2;
+
+        bool hitFound2 = Physics.Raycast(RayCastEmitter.transform.position, -RayCastEmitter.transform.up + RayCastEmitter.transform.forward, out hit2, 1.5f);
+        Debug.DrawRay(RayCastEmitter.transform.position, -RayCastEmitter.transform.up + RayCastEmitter.transform.forward * 1.5f, Color.red);
+
+        if (hitFound2)
         {
-            TargetPredicted.position = new Vector3(TargetPredicted.position.x, hit.point.y, TargetPredicted.position.z);
+            TargetPredicted.position = new Vector3(hit2.point.x, hit2.point.y, hit2.point.z);
+        }
+        else
+        {
+            TargetPredicted.position = new Vector3(hit.point.x, hit.point.y, hit.point.z);
         }
     }
 }
