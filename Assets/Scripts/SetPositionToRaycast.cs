@@ -5,68 +5,97 @@ using UnityEngine;
 
 public class SetPositionToRaycast : MonoBehaviour
 {
+    /// <summary>
+    /// The distance required between the leg end effector and predicted target positions before the feet move.
+    /// </summary>
     [field: SerializeField] 
     public float StrideLength
     { get; private set; } = 1.0f;
 
+    /// <summary>
+    /// Time taken to lerp legs position to new position.
+    /// </summary>
+    [field: SerializeField]
+    public float TimeToMoveLeg
+    { get; private set; } = 0.2f;
+
+    /// <summary>
+    /// The transform component for the predicted target gameobject for the current limb.
+    /// </summary>
     [field: SerializeField]
     public Transform TargetPredicted
     { get; private set; }
 
+    /// <summary>
+    /// The transform component for the end effector of the current limb.
+    /// </summary>
     [field: SerializeField]
     public Transform EndEffectorTarget
     { get; private set; }
 
+    /// <summary>
+    /// Tracks if the current limb is being lerp to new position - prevents multiple interpolitions coroutines being ran.
+    /// </summary>
     [field: SerializeField]
     public bool LegMoving 
     { get; private set; } = false;
 
+    /// <summary>
+    /// The lerp curve to provide upwards Y movement to steps - currently disabled due to glitch with uneven terrain.
+    /// </summary>
     [field: SerializeField]
     public AnimationCurve LerpCurve
+    { get; private set; }
+
+    /// <summary>
+    /// Reference to leg positional raycast script on opposite leg - enables check if it is moving.
+    /// </summary>
+    [field: SerializeField]
+    public SetPositionToRaycast PairedLeg
     { get; private set; }
 
 
     // Start is called before the first frame update
     void Start()
     {
+        SetTargetToPredictedTarget();
 
+        EndEffectorTarget.position = TargetPredicted.position;
     }
 
     // Update is called once per frame
     void Update()
     {
-        RaycastHit hit;
-
-        bool hitFound = Physics.Raycast(TargetPredicted.position + transform.up.normalized, -transform.up, out hit);
-        Debug.DrawRay(TargetPredicted.position + transform.up.normalized, -transform.up);
-
-        if (hitFound)
-        {
-            TargetPredicted.position = new Vector3(TargetPredicted.position.x, hit.point.y, TargetPredicted.position.z);
-        }
+        SetTargetToPredictedTarget();
 
         float targetToPredictedStepDistance = Vector3.Distance(EndEffectorTarget.position, TargetPredicted.position);
 
-        if (targetToPredictedStepDistance > StrideLength && LegMoving == false)
+        if (targetToPredictedStepDistance > StrideLength && LegMoving == false && PairedLeg.LegMoving == false)
         {
-            StartCoroutine(TransitionLegs());
+            StartCoroutine(TransitionLegs(TimeToMoveLeg));
 
             // EndEffectorTarget.position = TargetPredicted.position;
         }
     }
 
-    public IEnumerator TransitionLegs()
+    /// <summary>
+    /// Lerps between the start
+    /// </summary>
+    /// <returns></returns>
+    public IEnumerator TransitionLegs(float timeToMoveLeg)
     {
         LegMoving = true;
 
         Vector3 startPosition = EndEffectorTarget.position;
         Vector3 endPosition = TargetPredicted.position;
 
-        float timeToMoveLeg = 0.2f;
         float timeElasped = 0.0f;
 
         while (timeElasped < timeToMoveLeg)
         {
+            // This line will keep the end position moving to the current position of the preditcted target position - moving goal post
+            endPosition = TargetPredicted.position;
+
             float currentTime = timeElasped / timeToMoveLeg;
 
             Vector3 currentValue = Vector3.Lerp(startPosition, endPosition, currentTime);
@@ -86,5 +115,21 @@ public class SetPositionToRaycast : MonoBehaviour
         }
 
         LegMoving = false;
+    }
+
+    /// <summary>
+    /// Set's the target predicted position to the new ray hit position.
+    /// </summary>
+    public void SetTargetToPredictedTarget()
+    {
+        RaycastHit hit;
+
+        bool hitFound = Physics.Raycast(TargetPredicted.position + transform.up.normalized, -transform.up, out hit);
+        Debug.DrawRay(TargetPredicted.position + transform.up.normalized, -transform.up);
+
+        if (hitFound)
+        {
+            TargetPredicted.position = new Vector3(TargetPredicted.position.x, hit.point.y, TargetPredicted.position.z);
+        }
     }
 }
