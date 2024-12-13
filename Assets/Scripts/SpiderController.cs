@@ -23,14 +23,23 @@ public class SpiderController : MonoBehaviour
     public Vector3 BodyOffset
     { get; private set; }
 
+    /// <summary>
+    /// Speed of the translate of the spider body.
+    /// </summary>
     [field: SerializeField]
     public float MovementSpeed
     { get; private set; }
 
+    /// <summary>
+    /// Speed of the rotation of the spider body.
+    /// </summary>
     [field: SerializeField]
     public float RotationSpeed
     { get; private set; }
 
+    /// <summary>
+    /// The limb end points for purpose of body height calculation.
+    /// </summary>
     [field: SerializeField]
     public List<GameObject> LimbsEndPoints
     { get; private set; }
@@ -62,6 +71,11 @@ public class SpiderController : MonoBehaviour
         transform.position = new Vector3(transform.position.x, CalulateAveragePosition(LimbsEndPoints).y + BodyOffset.y, transform.position.z);
     }
 
+    /// <summary>
+    /// Takes in multiple gameobjects and return the average position.
+    /// </summary>
+    /// <param name="limbPositions"></param>
+    /// <returns></returns>
     public Vector3 CalulateAveragePosition(List<GameObject> limbPositions)
     {
         Vector3 totalPositions = new Vector3(0, 0, 0);
