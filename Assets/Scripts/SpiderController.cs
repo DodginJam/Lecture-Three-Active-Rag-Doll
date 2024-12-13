@@ -1,3 +1,4 @@
+using DitzelGames.FastIK;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -46,7 +47,13 @@ public class SpiderController : MonoBehaviour
 
     private void Awake()
     {
-        
+        FastIKFabric[] limbList = transform.GetComponentsInChildren<DitzelGames.FastIK.FastIKFabric>();
+
+        foreach(FastIKFabric script in limbList)
+        {
+            GameObject currentObject = script.gameObject;
+            LimbsEndPoints.Add(currentObject);
+        }
     }
 
     // Start is called before the first frame update

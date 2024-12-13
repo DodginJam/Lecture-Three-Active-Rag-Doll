@@ -126,16 +126,20 @@ public class SetPositionToRaycast : MonoBehaviour
     /// </summary>
     public void SetTargetToPredictedTarget()
     {
+        // This first raycaset is looking stright down from the gameobject emitter.
         RaycastHit hit;
 
         bool hitFound = Physics.Raycast(RayCastEmitter.transform.position, -transform.up, out hit);
         Debug.DrawRay(RayCastEmitter.transform.position, -transform.up);
 
+
+        // This second raycaset is looking forward and down from the gameobject emitter, a diagonal line.
         RaycastHit hit2;
 
         bool hitFound2 = Physics.Raycast(RayCastEmitter.transform.position, -RayCastEmitter.transform.up + RayCastEmitter.transform.forward, out hit2, 1.5f);
         Debug.DrawRay(RayCastEmitter.transform.position, -RayCastEmitter.transform.up + RayCastEmitter.transform.forward * 1.5f, Color.red);
 
+        // If the shorter length, second raycast hit is successful, allow that information to pass to predicted target position, else the downwards raycast is passed.
         if (hitFound2)
         {
             TargetPredicted.position = new Vector3(hit2.point.x, hit2.point.y, hit2.point.z);
